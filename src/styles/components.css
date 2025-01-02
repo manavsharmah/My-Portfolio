@@ -1,0 +1,256 @@
+/* Styling for the Navbar */
+.nav-bar {
+    position: fixed;
+    top: 0;          
+    left: 0;         
+    width: 100%;  
+    height: 7vh;
+    z-index: 100;
+    background: #000;
+}
+
+.nav-bar-content {
+    display: flex;
+    padding-top: 5px ;
+    height: 7vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar-logo h1 {
+    color: #4de1e1;
+    margin: 0px;
+    padding-left: 6vw;
+    font-size: 45px;
+    font-family: 'Sacramento', cursive;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    padding-right: 3vw;
+}
+
+.nav-link li {
+    padding: 10px 20px;
+}
+
+.nav-link li a:hover {
+    border-bottom: 4px solid #4de1e1;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.nav-link a {
+    color: #4de1e1;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-bar-burger {
+    display: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.nav-bar-burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #4de1e1;
+    margin: 5px;
+    transition: all 0.5s ease;
+}
+
+.nav-bar-burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.nav-bar-burger.toggle .line2 {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.nav-bar-burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px); 
+}
+
+
+@media screen and (min-width: 768px) {
+    .nav-link {
+        display: flex;
+    }
+
+    .nav-bar-burger {
+        display: none;
+    }
+
+    .nav-link .nav-active {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .nav-bar-logo h1 {
+        font-size: 35px;
+    }
+    
+    .nav-link {
+        display: none;
+        margin-top: 7vh;
+        position: absolute;
+        right: 0;
+        height: auto;
+        background-color: #000000;
+        flex-direction: column;
+        align-items:flex-end;
+        width: 35%;
+        list-style-type: none;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        overflow-x: hidden;
+    }
+
+    .nav-link a {
+        font-size: 18px;
+    }
+
+    .nav-link li {
+        opacity: 0;
+        padding: 10px;
+        list-style: none;
+        opacity: 0;
+        transition: opacity 0.5s ease 0.3s;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+        display: flex;
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-active li {
+        opacity: 1;
+    }
+
+    .nav-bar-burger {
+        display: block;
+    }
+}
+
+
+/* Introduction Section */
+
+.introduction-section {
+    padding-top: 7vh;
+    height: 93vh;
+    display: flex;
+    position: relative;
+}
+
+.intro-para {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-para h1 {
+    color: #ff6600;
+    margin: 10px;
+    font-family: 'Sacramento', cursive;
+    font-size: 120px;
+}
+
+.intro-para h2 {
+    color: #ff6600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+}
+
+.intro-img {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 2;
+}
+
+.img-container {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    perspective: 1000px; /* for 3D rotation */
+}
+
+.programmer-icon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Hides the back face during rotation */
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.manav-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Hides the back face during rotation */
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.programmer-icon {
+    transform: rotateY(0deg); /* Start default position */
+}
+
+.manav-image {
+    transform: rotateY(-180deg); /* Initially hidden behind the programmer icon */
+    opacity: 0;
+}
+
+.img-container:hover .programmer-icon {
+    transform: rotateY(180deg); /* Rotate the programmer icon out of view */
+    opacity: 0;
+}
+
+.img-container:hover .manav-image {
+    transform: rotateY(0deg); /* Rotate the manav image into view */
+    opacity: 1;
+}
+
+.background-shapes {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ff9c9c, #933c3c);
+    animation: pulse 3s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
