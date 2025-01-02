@@ -6,7 +6,7 @@ import Introduction from './components/Introductio';
 function App() {
   return (
     <div className="App">
-      <NavBar/>
+      {/* <NavBar/> */}
       <Introduction/>
     </div>
   );
